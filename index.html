@@ -83,11 +83,12 @@
         <pre>
             let intToRoman = function(num) {
                 let result = '';
+                // arrays with Roman Numbers
                 let arrayRomanThousands = ['M', 'MM', 'MMM'];
                 let arrayRomanHundreds = ['C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'];
                 let arrayRomanTens = ['X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC'];
                 let arrayRomanUnit = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
-            
+                //schedule of numbers into digit
                 let thousands = Math.floor( num / 1000 );
                 let hundreds = Math.floor( num / 100 ) % 10;
                 let tens = Math.floor( num / 10 ) % 10;
@@ -125,11 +126,10 @@
         
     <section class="live">
         <h2>Live Mode</h2>
+        <p class="live__text">Type some integer number:</p>
+        <input type="text" value="2021" class="live__input" onblur="OnBlur()">
+        <p class="live__result">MMXXI</p>
     </section>
-
-    
-
-
 
 <script src="./index.js"></script>
 </body>

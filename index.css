@@ -6,9 +6,6 @@ body {
     font-family: sans-serif;
     background-color: rgb(236, 255, 221);
 }
-header {}
-h1 {}
-h2 {}
 code {
     background-color: rgb(224, 236, 238); 
     color: rgb(61, 61, 61);
@@ -19,7 +16,6 @@ code {
     font-family: sans-serif;
     font-style: italic;
 }
-.description {}
 .description p{
     padding-bottom: 10px;
 }
@@ -31,10 +27,18 @@ code {
 .constraints p{
     font-weight: 600;
 }
-.solution {}
-.live {
-
+.live__input {
+    padding: 10px 10px;
+    font-size: 16px;
+    border: none;
 }
-
-
+.live__input:focus {
+    border: none;
+    outline: none;
+}
+.live__result{
+    font-size: 28px;
+    margin: 5px;
+    color: rgb(206, 40, 40);
+}
 
