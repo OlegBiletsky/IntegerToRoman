@@ -58,6 +58,9 @@ function convert() {
 }
 
 function OnBlur() {
-    live__input.value = 2021;
-    live__result.innerText = intToRoman(live__input.value);
+    if (live__result.innerText === 'Incorrect value') {
+        live__input.value = 2021;
+        live__result.innerText = intToRoman(live__input.value);
+    }
+   
 }
