@@ -1,0 +1,40 @@
+body {
+    margin: auto; 
+    text-align: left;
+    max-width: 1200px; 
+    padding: 20px; 
+    font-family: sans-serif;
+    background-color: rgb(236, 255, 221);
+}
+header {}
+h1 {}
+h2 {}
+code {
+    background-color: rgb(224, 236, 238); 
+    color: rgb(61, 61, 61);
+    font-size: 16px;
+}
+.header__link {
+    color: rgb(156, 146, 0);
+    font-family: sans-serif;
+    font-style: italic;
+}
+.description {}
+.description p{
+    padding-bottom: 10px;
+}
+.description__table {
+    padding: 10px 0;
+    background-color: rgb(224, 236, 238); 
+    color: rgb(61, 61, 61);
+}
+.constraints p{
+    font-weight: 600;
+}
+.solution {}
+.live {
+
+}
+
+
+

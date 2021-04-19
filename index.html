@@ -4,43 +4,133 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>toRoman</title>
+    <link rel="stylesheet" href="./index.css">
+    <title>IntegerToRoman</title>
 </head>
-<body style="margin: auto; text-align: left; max-width: 1200; padding: 20px;">
-    <h1>Task</h1>
-    <a href="https://leetcode.com/problems/two-sum/" target="_blank">https://leetcode.com/problems/two-sum/</a>
-    <p style="padding-bottom: 10px;">
-        
-    </p>
-    <p style="padding: 10px 0;">
-        
-    </p>
-    <p style="padding: 10px 0;">
-    
-    </p>
+<body>
+    <header>
+        <h1>Task</h1>
+        <a href="https://leetcode.com/problems/integer-to-roman/" target="_blank" class="header__link">
+            https://leetcode.com/problems/integer-to-roman/
+        </a>
+    </header>
 
-    <code>
-        <p>Example 1:</p>
-        <div style="background-color: rgb(224, 236, 238); color: rgb(61, 61, 61);">
-            <p>Input: nums = [2,7,11,15], target = 9</p>
-            <p>Output: [0,1]</p>
-            <p>Output: Because nums[0] + nums[1] == 9, we return [0, 1].</p>
-        </div>
-    </code>
-    <code>
+    <section class="description">
+        <p>
+            Roman numerals are represented by seven different symbols: <code>I</code>, <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>, <code>D</code> and <code>M</code>.
+        </p>
+        <code>
+            <table class="description__table">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>I</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>L</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>1000</td>
+                </tr>
+            </table>
+        </code>
+        <p>
+            For example, <code>2</code> is written as <code>II</code> in Roman numeral, just two one's added together. <code>12</code> is written as <code>XII</code>, which is simply <code>X + II</code>. The number <code>27</code> is written as <code>XXVII</code>, which is <code>XX + V + II</code>.
+        </p>
+        <p>
+            Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not <code>IIII</code>. Instead, the number four is written as <code>IV</code>. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as <code>IX</code>. There are six instances where subtraction is used:
+            <ul>
+                <li><code>I</code> can be placed before <code>V</code> (5) and <code>X</code> (10) to make 4 and 9.</li>
+                <li><code>X</code> can be placed before <code>L</code> (50) and <code>C</code> (100) to make 40 and 90. </li>
+                <li><code>C</code> can be placed before <code>D</code> (500) and <code>M</code> (1000) to make 400 and 900.</li>
+            </ul>
+        </p>
+        <p>
+            Given an integer, convert it to a roman numeral.
+        </p>
+    </section>
+    
+    <section class="constraints">
         <p>Constraints:</p>
-        <ul style="background-color: rgb(224, 236, 238); color: rgb(61, 61, 61);">
-            <li>2 <= nums.length <= 103</li>
-            <li>-109 <= nums[i] <= 109</li>
-            <li>-109 <= target <= 109</li>
-            <li>Only one valid answer exists.</li>
-        </ul>
-    </code>
-    <h2>Solution</h2>
-    <pre>
+            <ul>
+                <li><code>1 <= num <= 3999</code></li>
+            </ul>
+    </section>
+    
+    <section class="solution">
+        <h2>Solution</h2>
+        <pre>
+            let intToRoman = function(num) {
+                let result = '';
+                let arrayRomanThousands = ['M', 'MM', 'MMM'];
+                let arrayRomanHundreds = ['C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'];
+                let arrayRomanTens = ['X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC'];
+                let arrayRomanUnit = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+            
+                let thousands = Math.floor( num / 1000 );
+                let hundreds = Math.floor( num / 100 ) % 10;
+                let tens = Math.floor( num / 10 ) % 10;
+                let unit = num % 10;
         
-    </pre>
-    <h2>Live Mode</h2>
+                for (i=0; i < arrayRomanThousands.length; i++) {
+                    if (i+1 === thousands) {            
+                        result = arrayRomanThousands[i];
+                        break;
+                    }
+                }
+                for (i=0; i < arrayRomanHundreds.length; i++) {
+                    if (i+1 === hundreds) {            
+                        result += arrayRomanHundreds[i];
+                        break;
+                    }
+                } 
+                for (i=0; i < arrayRomanTens.length; i++) {
+                    if (i+1 === tens) {            
+                        result += arrayRomanTens[i];
+                        break;
+                    }
+                }
+                for (i=0; i < arrayRomanUnit.length; i++) {
+                    if (i+1 === unit) {            
+                        result += arrayRomanUnit[i];
+                        break;
+                    }
+                }
+            
+                return result;
+            };
+        </pre>
+    </section>
+        
+    <section class="live">
+        <h2>Live Mode</h2>
+    </section>
+
+    
+
+
+
 <script src="./index.js"></script>
 </body>
 </html>
